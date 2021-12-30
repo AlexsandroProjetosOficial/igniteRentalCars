@@ -5,11 +5,11 @@ class ListCategoriesController {
     constructor (private listCategoriesUseCase: ListCategoriesUseCase) {};
 
     async handle(req: Request, res: Response): Promise<Response> {
-        const all = await this.listCategoriesUseCase.execute();
+        const categories = await this.listCategoriesUseCase.execute();
 
         return res.status(200).json({
             message: 'Categories has been selected successfully.',
-            all
+            categories
         });
     }
 }
