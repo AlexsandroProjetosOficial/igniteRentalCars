@@ -5,7 +5,7 @@ class ListSpecificationsUseCase {
     constructor(private specificationRepository: SpecificationRepository){};
 
     async execute(): Promise<Specification[]> {
-        const specifications = this.specificationRepository.list();
+        const specifications = await this.specificationRepository.list();
 
         return specifications;
     }
