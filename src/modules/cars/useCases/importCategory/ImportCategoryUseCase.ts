@@ -1,6 +1,7 @@
 import fs from 'fs';
 import { parse } from 'csv-parse';
 import { ICategoriesRepository } from '../../repositories/category/ICategoriesRepository';
+import { AppError } from '../../../../errors/AppError';
 
 interface IImportCategory {
     name: string;
@@ -45,7 +46,7 @@ class ImportCategoryUseCase {
             const existCategory = await this.categoriesRepository.findByName(name);
 
             if (existCategory) {
-                throw new Error('Category already exists.')
+                throw new AppError('Category already exists.')
             }
 
             await this.categoriesRepository.create({
