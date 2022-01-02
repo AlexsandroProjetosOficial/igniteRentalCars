@@ -3,10 +3,10 @@ import { sign } from "jsonwebtoken";
 import { AppError } from "../../../../errors/AppError";
 import { IAuthenticateUserDTO } from "../../dtos/IAuthenticateUserDTO";
 import { IAuthenticateUserResponseDTO } from "../../dtos/IAuthenticateUserResponseTDO";
-import { IUsersRepository } from "../../repositories/user/IUsersRepository";
+import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
 
 class AuthenticateUserUseCase {
-	constructor(private usersRepository: IUsersRepository) {}
+	constructor(private usersRepository: IUsersRepositoryDTO) {}
 
 	async execute({ email, password }: IAuthenticateUserDTO): Promise<IAuthenticateUserResponseDTO> {
 		const user = await this.usersRepository.findByEmail(email);

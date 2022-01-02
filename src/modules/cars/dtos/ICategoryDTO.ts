@@ -1,8 +1,8 @@
-class Category {
+interface ICategoryDTO {
     id: string;
     name: string;
     description: string;
     createdAt: Date;
 }
 
-export { Category }
+export { ICategoryDTO }

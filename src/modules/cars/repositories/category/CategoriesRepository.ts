@@ -1,8 +1,9 @@
-import { Category } from "../../models/Category";
-import { ICategoriesRepository, ICreateCategoryDTO } from "./ICategoriesRepository";
 import { prismaClient } from "../../../../prisma";
+import { ICategoryDTO } from "../../dtos/ICategoryDTO";
+import { ICreateCategoryDTO } from "../../dtos/ICreateCategoryDTO";
+import { ICategoriesRepositoryDTO } from "../../dtos/ICategoriesRepositoryDTO";
 
-class CategoriesRepository implements ICategoriesRepository {
+class CategoriesRepository implements ICategoriesRepositoryDTO {
     async create({ name, description }: ICreateCategoryDTO): Promise<void> {
         await prismaClient.category.create({
 			data: {
@@ -12,13 +13,13 @@ class CategoriesRepository implements ICategoriesRepository {
 		});
     }
 
-    async list(): Promise<Category[]> {
+    async list(): Promise<ICategoryDTO[]> {
         const categories = await prismaClient.category.findMany();
 
 		return categories;
     }
 
-    async findByName(name: string): Promise<Category> {
+    async findByName(name: string): Promise<ICategoryDTO> {
         const category = await prismaClient.category.findFirst({
 			where: {
 				name: name

@@ -1,10 +1,10 @@
 import { hash } from "bcrypt";
 import { AppError } from "../../../../errors/AppError";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { IUsersRepository } from "../../repositories/user/IUsersRepository";
+import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
 
 class CreateUserUseCase {
-	constructor(private usersRepository: IUsersRepository) {}
+	constructor(private usersRepository: IUsersRepositoryDTO) {}
 
 	async execute({ name, email, password, driverLicence }: ICreateUserDTO): Promise<void> {
 		const userAlreadyExists = await this.usersRepository.findByEmail(email);

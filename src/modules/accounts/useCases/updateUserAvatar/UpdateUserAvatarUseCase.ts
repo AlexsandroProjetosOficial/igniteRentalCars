@@ -1,10 +1,10 @@
 import { AppError } from "../../../../errors/AppError";
 import { file } from "../../../../utils/file";
 import { IUpdateUserAvatarDTO } from "../../dtos/IUpdateUserAvatarDTO";
-import { IUsersRepository } from "../../repositories/user/IUsersRepository";
+import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
 
 class UpdateUserAvatarUseCase {
-	constructor (private usersRepository: IUsersRepository) {}
+	constructor (private usersRepository: IUsersRepositoryDTO) {}
 
 	async execute({ user_id, avatar_file }: IUpdateUserAvatarDTO): Promise<void> {
 		const user = await this.usersRepository.findById(user_id);

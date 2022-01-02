@@ -1,4 +1,4 @@
-class User {
+interface IUserDTO {
 	id: string;
 	name: string;
 	password: string;
@@ -9,4 +9,4 @@ class User {
 	createdAt: Date;
 };
 
-export { User };
+export { IUserDTO };

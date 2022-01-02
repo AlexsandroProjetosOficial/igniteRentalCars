@@ -1,10 +1,10 @@
-import { Specification } from "../../models/Specification";
-import { SpecificationRepository } from "../../repositories/specification/SpecificationsRepository";
+import { ISpecificationDTO } from "../../dtos/ISpecificationDTO";
+import { ISpecificationsRepositoryDTO } from "../../dtos/ISpecificationsRepositoryDTO";
 
 class ListSpecificationsUseCase {
-    constructor(private specificationRepository: SpecificationRepository){};
+    constructor(private specificationRepository: ISpecificationsRepositoryDTO){};
 
-    async execute(): Promise<Specification[]> {
+    async execute(): Promise<ISpecificationDTO[]> {
         const specifications = await this.specificationRepository.list();
 
         return specifications;

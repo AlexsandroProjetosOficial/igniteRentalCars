@@ -1,10 +1,10 @@
 import { prismaClient } from "../../../../prisma";
 import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
 import { IUpdateUserAvatarDTO } from "../../dtos/IUpdateUserAvatarDTO";
-import { User } from "../../models/User";
-import { IUsersRepository } from "./IUsersRepository";
+import { IUserDTO } from "../../dtos/IUserDTO";
+import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
 
-class UsersRepository implements IUsersRepository {
+class UsersRepository implements IUsersRepositoryDTO {
 	async update({ user_id, avatar_file }: IUpdateUserAvatarDTO): Promise<void> {
 		await prismaClient.user.update({
 			where: {
@@ -16,7 +16,7 @@ class UsersRepository implements IUsersRepository {
 		})
 	};
 
-	async findById(user_id: string): Promise<User> {
+	async findById(user_id: string): Promise<IUserDTO> {
 		const user = await prismaClient.user.findFirst({
 			where: {
 				id: user_id
@@ -26,7 +26,7 @@ class UsersRepository implements IUsersRepository {
 		return user;
 	};
 
-	async findByEmail(email: string): Promise<User> {
+	async findByEmail(email: string): Promise<IUserDTO> {
 		const user = await prismaClient.user.findFirst({
 			where: {
 				email: email

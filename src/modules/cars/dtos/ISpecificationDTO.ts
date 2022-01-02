@@ -1,8 +1,8 @@
-class Specification {
+interface ISpecificationDTO {
     id: string;
     name: string;
     description: string;
     createdAt: Date;
 };
 
-export { Specification };
+export { ISpecificationDTO };

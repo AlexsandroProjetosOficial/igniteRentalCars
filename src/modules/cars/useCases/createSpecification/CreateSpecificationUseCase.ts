@@ -1,15 +1,11 @@
 import { AppError } from "../../../../errors/AppError";
-import { ISpecificationsRepository } from "../../repositories/specification/ISpecificationsRepository";
-
-interface IRequest {
-    name: string;
-    description: string;
-}
+import { ICreateSpecificationDTO } from "../../dtos/ICreateSpecificationDTO";
+import { ISpecificationsRepositoryDTO } from "../../dtos/ISpecificationsRepositoryDTO";
 
 class CreateSpecificationUseCase {
-    constructor (private specificationsRepository: ISpecificationsRepository) {};
+    constructor (private specificationsRepository: ISpecificationsRepositoryDTO) {};
 
-    async execute({ name, description }: IRequest): Promise<void> {
+    async execute({ name, description }: ICreateSpecificationDTO): Promise<void> {
         const specificationAlreadyExists = await this.specificationsRepository.findByName(name);
         
         if(specificationAlreadyExists) {
