@@ -1,8 +1,9 @@
 import fs from 'fs';
 import { parse } from 'csv-parse';
-import { AppError } from '../../../../errors/AppError';
-import { ICreateCategoryDTO } from '../../dtos/ICreateCategoryDTO';
-import { ICategoriesRepositoryDTO } from '../../dtos/ICategoriesRepositoryDTO';
+import { ICategoriesRepositoryDTO } from '@modules/cars/dtos/category/ICategoriesRepositoryDTO';
+import { ICreateCategoryDTO } from '@modules/cars/dtos/category/ICreateCategoryDTO';
+import { AppError } from '@errors/AppError';
+
 
 class ImportCategoryUseCase {
     constructor(private categoriesRepository: ICategoriesRepositoryDTO) { }

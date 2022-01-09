@@ -1,5 +1,5 @@
-import { ISpecificationDTO } from "../../dtos/ISpecificationDTO";
-import { ISpecificationsRepositoryDTO } from "../../dtos/ISpecificationsRepositoryDTO";
+import { ISpecificationDTO } from "@modules/cars/dtos/specification/ISpecificationDTO";
+import { ISpecificationsRepositoryDTO } from "@modules/cars/dtos/specification/ISpecificationsRepositoryDTO";
 
 class ListSpecificationsUseCase {
     constructor(private specificationRepository: ISpecificationsRepositoryDTO){};

@@ -1,8 +1,8 @@
-import { prismaClient } from "../../../../prisma";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { IUpdateUserAvatarDTO } from "../../dtos/IUpdateUserAvatarDTO";
-import { IUserDTO } from "../../dtos/IUserDTO";
-import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
+import { ICreateUserDTO } from "@modules/accounts/dtos/user/ICreateUserDTO";
+import { IUpdateUserAvatarDTO } from "@modules/accounts/dtos/user/IUpdateUserAvatarDTO";
+import { IUserDTO } from "@modules/accounts/dtos/user/IUserDTO";
+import { IUsersRepositoryDTO } from "@modules/accounts/dtos/user/IUsersRepositoryDTO";
+import { prismaClient } from "@prisma/index";
 
 class UsersRepository implements IUsersRepositoryDTO {
 	async update({ user_id, avatar_file }: IUpdateUserAvatarDTO): Promise<void> {

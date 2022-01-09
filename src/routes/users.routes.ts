@@ -4,12 +4,14 @@ import { createUserControler } from "../modules/accounts/useCases/createUser";
 import { updateUserAvatarController } from "../modules/accounts/useCases/updateUserAvatar";
 import uploadConfig from '../config/upload';
 import { ensureAuthenticated } from "../middlewares/ensureAuthenticated";
+import { ensureLogging } from "@middlewares/ensureLogging";
 
 const usersRoutes = Router();
 
 const uploadAvatar = multer(uploadConfig.upload('./tmp/avatar'))
 
 usersRoutes.use(ensureAuthenticated);
+usersRoutes.use(ensureLogging);
 usersRoutes.post('/', async (req, res) => await createUserControler.handle(req, res));
 usersRoutes.patch('/avatar', uploadAvatar.single('avatar'), async (req, res) => await updateUserAvatarController.handle(req, res));
 

@@ -1,7 +1,7 @@
-import { AppError } from "../../../../errors/AppError";
-import { file } from "../../../../utils/file";
-import { IUpdateUserAvatarDTO } from "../../dtos/IUpdateUserAvatarDTO";
-import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
+import { AppError } from "@errors/AppError";
+import { IUpdateUserAvatarDTO } from "@modules/accounts/dtos/user/IUpdateUserAvatarDTO";
+import { IUsersRepositoryDTO } from "@modules/accounts/dtos/user/IUsersRepositoryDTO";
+import { file } from '@utils/file';
 
 class UpdateUserAvatarUseCase {
 	constructor (private usersRepository: IUsersRepositoryDTO) {}

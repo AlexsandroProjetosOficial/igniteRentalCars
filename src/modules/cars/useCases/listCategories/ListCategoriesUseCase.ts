@@ -1,5 +1,5 @@
-import { ICategoriesRepositoryDTO } from "../../dtos/ICategoriesRepositoryDTO";
-import { ICategoryDTO } from "../../dtos/ICategoryDTO";
+import { ICategoriesRepositoryDTO } from "@modules/cars/dtos/category/ICategoriesRepositoryDTO";
+import { ICategoryDTO } from "@modules/cars/dtos/category/ICategoryDTO";
 
 class ListCategoriesUseCase {
     constructor (private categoriesRepository: ICategoriesRepositoryDTO) {};

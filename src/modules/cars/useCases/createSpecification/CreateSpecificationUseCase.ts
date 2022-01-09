@@ -1,6 +1,7 @@
-import { AppError } from "../../../../errors/AppError";
-import { ICreateSpecificationDTO } from "../../dtos/ICreateSpecificationDTO";
-import { ISpecificationsRepositoryDTO } from "../../dtos/ISpecificationsRepositoryDTO";
+import { AppError } from "@errors/AppError";
+import { ICreateSpecificationDTO } from "@modules/cars/dtos/specification/ICreateSpecificationDTO";
+import { ISpecificationsRepositoryDTO } from "@modules/cars/dtos/specification/ISpecificationsRepositoryDTO";
+
 
 class CreateSpecificationUseCase {
     constructor (private specificationsRepository: ISpecificationsRepositoryDTO) {};

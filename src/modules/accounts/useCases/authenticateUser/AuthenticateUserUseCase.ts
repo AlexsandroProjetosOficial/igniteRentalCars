@@ -1,9 +1,9 @@
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
-import { AppError } from "../../../../errors/AppError";
-import { IAuthenticateUserDTO } from "../../dtos/IAuthenticateUserDTO";
-import { IAuthenticateUserResponseDTO } from "../../dtos/IAuthenticateUserResponseTDO";
-import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
+import { AppError } from "@errors/AppError";
+import { IAuthenticateUserDTO } from "@modules/accounts/dtos/authenticate/IAuthenticateUserDTO";
+import { IAuthenticateUserResponseDTO } from "@modules/accounts/dtos/authenticate/IAuthenticateUserResponseTDO";
+import { IUsersRepositoryDTO } from "@modules/accounts/dtos/user/IUsersRepositoryDTO";
 
 class AuthenticateUserUseCase {
 	constructor(private usersRepository: IUsersRepositoryDTO) {}
@@ -23,7 +23,7 @@ class AuthenticateUserUseCase {
 
 		const token = sign(
 			{},
-			process.env.JWT_SECRET,
+			'fd1fb79c-6c82-424a-ae73-a758f181dc74',
 			{
 				subject: user.id,
 				expiresIn: '1d'

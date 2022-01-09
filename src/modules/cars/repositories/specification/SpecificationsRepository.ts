@@ -1,7 +1,8 @@
-import { prismaClient } from "../../../../prisma";
-import { ICreateSpecificationDTO } from "../../dtos/ICreateSpecificationDTO";
-import { ISpecificationDTO } from "../../dtos/ISpecificationDTO";
-import { ISpecificationsRepositoryDTO } from "../../dtos/ISpecificationsRepositoryDTO";
+import { ICreateSpecificationDTO } from "@modules/cars/dtos/specification/ICreateSpecificationDTO";
+import { ISpecificationDTO } from "@modules/cars/dtos/specification/ISpecificationDTO";
+import { ISpecificationsRepositoryDTO } from "@modules/cars/dtos/specification/ISpecificationsRepositoryDTO";
+import { prismaClient } from "@prisma/index";
+
 
 class SpecificationRepository implements ISpecificationsRepositoryDTO {
     async list(): Promise<ISpecificationDTO[] > {

@@ -1,7 +1,7 @@
+import { AppError } from "@errors/AppError";
+import { ICreateUserDTO } from "@modules/accounts/dtos/user/ICreateUserDTO";
+import { IUsersRepositoryDTO } from "@modules/accounts/dtos/user/IUsersRepositoryDTO";
 import { hash } from "bcrypt";
-import { AppError } from "../../../../errors/AppError";
-import { ICreateUserDTO } from "../../dtos/ICreateUserDTO";
-import { IUsersRepositoryDTO } from "../../dtos/IUsersRepositoryDTO";
 
 class CreateUserUseCase {
 	constructor(private usersRepository: IUsersRepositoryDTO) {}
