@@ -4,6 +4,15 @@ import { ICreateCarDTO } from "@modules/cars/dtos/car/ICreateCarDTO";
 import { prismaClient } from "@prisma/index";
 
 class CarsRepository implements ICarsRepositoryDTO {
+	async findById(carId: string): Promise<ICarDTO> {
+		const car = await prismaClient.car.findFirst({
+			where: {
+				id: carId
+			}
+		})
+
+		return car;
+	}
 
 	async findAvailable(brand?: string, categoryId?: string, name?: string): Promise<ICarDTO[]> {
 		const cars = await prismaClient.car.findMany({

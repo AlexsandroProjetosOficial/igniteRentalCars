@@ -8,6 +8,7 @@ interface ICarDTO {
 	fineAmount: number;
 	brand: string;
 	categoryId: string;
+	specificationsCars?: string[];
     createdAt: Date;
 };
 

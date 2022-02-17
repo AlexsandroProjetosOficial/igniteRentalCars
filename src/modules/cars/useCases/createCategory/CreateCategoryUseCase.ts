@@ -1,6 +1,7 @@
-import { AppError } from "../../../../errors/AppError";
-import { ICreateCategoryDTO } from '../../dtos/ICreateCategoryDTO';
-import { ICategoriesRepositoryDTO } from "../../dtos/ICategoriesRepositoryDTO";
+import { AppError } from "@errors/AppError";
+import { ICategoriesRepositoryDTO } from "@modules/cars/dtos/category/ICategoriesRepositoryDTO";
+import { ICreateCategoryDTO } from "@modules/cars/dtos/category/ICreateCategoryDTO";
+
 
 class CreateCategoryUseCase {
     constructor (private categoriesRepository: ICategoriesRepositoryDTO) {};

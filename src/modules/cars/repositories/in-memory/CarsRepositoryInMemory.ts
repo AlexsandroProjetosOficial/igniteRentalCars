@@ -5,12 +5,12 @@ import { Car } from "./models/Car";
 
 class CarsRepositoryInMemory implements ICarsRepositoryDTO {
 	cars: Car[] = [];
+	
+	async findById(carId: string): Promise<ICarDTO> {
+		return this.cars.find(car => car.id === carId);
+	};
 
-	async findAvailable(
-		categoryId?: string, 
-		brand?: string, 
-		name?: string
-		): Promise<ICarDTO[]> {
+	async findAvailable( categoryId?: string, brand?: string, name?: string) : Promise<ICarDTO[]> {
 		const carsAvailable = this.cars.filter(car => {
 			if (car.available === true ||
 				((brand && car.brand === brand) ||

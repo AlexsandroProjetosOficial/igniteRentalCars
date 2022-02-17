@@ -5,6 +5,17 @@ import { prismaClient } from "@prisma/index";
 
 
 class SpecificationRepository implements ISpecificationsRepositoryDTO {
+	async findByIds(ids: string[]): Promise<ISpecificationDTO[]> {
+		let specificationIds = await prismaClient.specification.findMany({
+			select: { id: true}
+		});
+
+		specificationIds = specificationIds.filter(element => element.id);
+
+		console.log(specificationIds);
+		return specificationIds;
+	}
+	
     async list(): Promise<ISpecificationDTO[] > {
         const specifications = await prismaClient.specification.findMany();
 
